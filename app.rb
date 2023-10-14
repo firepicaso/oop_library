@@ -41,7 +41,9 @@ class App
     if person_type == 2
       print 'Specialization?'
       specialization = gets.chomp
-      @people << Teacher.new(age, name, specialization: specialization)
+      unless specialization.length < 2
+        @people << Teacher.new(age, name, specialization: specialization)
+      end
     else
       print 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp.downcase == 'y'
