@@ -3,6 +3,7 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 
+
 class App
   attr_accessor :people, :books, :rentals
 
@@ -41,9 +42,7 @@ class App
     if person_type == 2
       print 'Specialization?'
       specialization = gets.chomp
-      unless specialization.length < 2
-        @people << Teacher.new(age, name, specialization: specialization)
-      end
+      @people << Teacher.new(age, name, specialization: specialization)
     else
       print 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp.downcase == 'y'

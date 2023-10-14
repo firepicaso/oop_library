@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'app'
 
 def display_menu
@@ -39,6 +40,7 @@ def main
     choice = gets.chomp.to_i
 
     if choice == 7
+      binding.pry
       puts 'Thank you for using this app!'
       break
     end
