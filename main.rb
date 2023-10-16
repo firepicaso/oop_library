@@ -24,7 +24,7 @@ def main
       break
     end
 
-    app.process_option(choice, app)
+    process_option(choice, app)
   end
 end
 
