@@ -11,25 +11,6 @@ def display_menu
   puts '7 - Exit'
 end
 
-def process_option(choice, app)
-  case choice
-  when 1
-    app.list_books
-  when 2
-    app.list_people
-  when 3
-    app.create_person
-  when 4
-    app.create_book
-  when 5
-    app.create_rental
-  when 6
-    app.list_rentals_for_person
-  else
-    puts 'Invalid option. Please choose a valid option.'
-  end
-end
-
 def main
   puts 'Welcome to School Library App!'
   app = App.new
@@ -43,7 +24,7 @@ def main
       break
     end
 
-    process_option(choice, app)
+    app.process_option(choice, app)
   end
 end
 
