@@ -85,7 +85,7 @@ No installation needed
 👤 **Ian Kiema**
 
 - GitHub: [@githubhandle](https://github.com/iankiema)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- Twitter: [@twitterhandle](https://twitter.com/IanMwas2)
 - LinkedIn: [LinkedIn](www.linkedin.com/in/ian-kiema-73419779)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
