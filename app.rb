@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'inputhandler'
 
 class App
   attr_accessor :people, :books, :rentals
@@ -10,25 +11,6 @@ class App
     @books = []
     @people = []
     @rentals = []
-  end
-
-  def process_option(choice, app)
-    case choice
-    when 1
-      app.list_books
-    when 2
-      app.list_people
-    when 3
-      app.create_person
-    when 4
-      app.create_book
-    when 5
-      app.create_rental
-    when 6
-      app.list_rentals_for_person
-    else
-      puts 'Invalid option. Please choose a valid option.'
-    end
   end
 
   def list_books
@@ -48,22 +30,16 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)?:'
-    person_type = gets.chomp.to_i
+    person_type = InputHandler.get_integer('Do you want to create a student (1) or a teacher (2)?:')
 
-    print 'Age?'
-    age = gets.chomp.to_i
-
-    print 'Name?'
-    name = gets.chomp
+    age = InputHandler.get_integer('Age?')
+    name = InputHandler.get_string('Name?')
 
     if person_type == 2
-      print 'Specialization?'
-      specialization = gets.chomp
+      specialization = InputHandler.get_string('Specialization?')
       @people << Teacher.new(age, name, specialization: specialization)
     else
-      print 'Has parent permission? [Y/N]: '
-      parent_permission = gets.chomp.downcase == 'y'
+      parent_permission = InputHandler.get_boolean('Has parent permission? [Y/N]:')
       @people << Student.new(age, name, parent_permission: parent_permission)
     end
 
@@ -71,11 +47,8 @@ class App
   end
 
   def create_book
-    print 'Title?'
-    title = gets.chomp
-
-    print 'Author?'
-    author = gets.chomp
+    title = InputHandler.get_string('Title?')
+    author = InputHandler.get_string('Author?')
 
     @books << Book.new(title, author)
     puts 'Book created successfully'
@@ -86,7 +59,7 @@ class App
     @books.each_with_index do |book, index|
       puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end
-    book_index = gets.chomp.to_i
+    book_index = InputHandler.get_integer('')
 
     puts "\nSelect a person from the following list by number (not id):"
     @people.each_with_index do |person, index|
@@ -96,18 +69,16 @@ class App
         puts "#{index}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
-    person_index = gets.chomp.to_i
+    person_index = InputHandler.get_integer('')
 
-    print "\nDate: "
-    date = gets.chomp
+    date = InputHandler.get_string('\nDate: ')
 
     @rentals << Rental.new(date, @books[book_index], @people[person_index])
     puts 'Rental created successfully'
   end
 
   def list_rentals_for_person
-    print 'ID of person: '
-    person_id = gets.chomp.to_i
+    person_id = InputHandler.get_integer('ID of person:')
 
     puts 'Rentals:'
     @rentals.each do |rental|
