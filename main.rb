@@ -1,4 +1,5 @@
 require_relative 'app'
+require_relative 'inputhandler'
 
 def display_menu
   puts "\nPlease choose an option by entering a number:"
@@ -12,19 +13,14 @@ def display_menu
 end
 
 def process_option(choice, app)
+  method_names = %i[list_books list_people create_person create_book create_rental list_rentals_for_person]
+
   case choice
-  when 1
-    app.list_books
-  when 2
-    app.list_people
-  when 3
-    app.create_person
-  when 4
-    app.create_book
-  when 5
-    app.create_rental
-  when 6
-    app.list_rentals_for_person
+  when 1..6
+    app.send(method_names[choice - 1])
+  when 7
+    puts 'Thank you for using this app!'
+    exit
   else
     puts 'Invalid option. Please choose a valid option.'
   end
@@ -36,12 +32,7 @@ def main
 
   loop do
     display_menu
-    choice = gets.chomp.to_i
-
-    if choice == 7
-      puts 'Thank you for using this app!'
-      break
-    end
+    choice = InputHandler.get_integer('')
 
     process_option(choice, app)
   end

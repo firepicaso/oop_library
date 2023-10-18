@@ -82,6 +82,12 @@ No installation needed
 - GitHub: [@githubhandle](https://github.com/firepicaso)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustakim-masum/)
 
+👤 **Ian Kiema**
+
+- GitHub: [@githubhandle](https://github.com/iankiema)
+- Twitter: [@twitterhandle](https://twitter.com/IanMwas2)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/ian-kiema)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
